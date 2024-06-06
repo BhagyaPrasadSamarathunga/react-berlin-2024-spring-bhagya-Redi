@@ -75,7 +75,7 @@ const RestaurantView = () => {
   return (
     <>
       <NavBar>
-        <h1>ReDI React Restaurant</h1>
+        <h1>ReDI React Restaurant Testing</h1>
 
         <SearchField filterDishes={handleDishesFilter} />
 
