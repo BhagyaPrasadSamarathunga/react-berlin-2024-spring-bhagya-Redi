@@ -3,3 +3,8 @@
         background: gray;
     }
 }
+.theme2 {
+    button {
+        background: green;
+    }
+}

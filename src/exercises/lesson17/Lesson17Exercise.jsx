@@ -1,4 +1,6 @@
 import styles from "./Lesson17Exercise.module.css";
+import { ThemeProvider,ThemeContext } from "./ThemeProvider";
+import { useContext } from "react";
 
 /**
  * Lesson 17 Exercise: Context with Theme
@@ -17,10 +19,14 @@ import styles from "./Lesson17Exercise.module.css";
  */
 
 const ChildButtonContainer = () => {
+const {theme, setTheme} = useContext(ThemeContext);
+const changeTheam=() => {
+  {theme === 'light' ? setTheme('dark'):setTheme('light')};
+}
   return (
-    <div>
+    <div className={theme === 'light'?styles.theme1:styles.theme2}>
       <p>Select a theme</p>
-      <button>Toggle Theme - (Show Current Theme)</button>
+      <button onClick={changeTheam}>Toggle Theme - (Show Current Theme {theme})</button>
     </div>
   );
 };
@@ -40,10 +46,12 @@ const ChildContentContainer = () => {
 
 export const Lesson17Exercise = () => {
   return (
-    <div >
-      <ChildButtonContainer />
-      <ChildContentContainer />
-    </div>
+    <ThemeProvider>
+      <div >
+        <ChildButtonContainer />
+        <ChildContentContainer />
+      </div>
+    </ThemeProvider>
   );
 };
 
